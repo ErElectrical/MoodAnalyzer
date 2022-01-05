@@ -84,5 +84,18 @@ namespace MoodAnalyzerUnittest
             Assert.AreEqual("happy mood", result);
 
         }
+
+        public void TestMethod_NullMood()
+        {
+
+            string expected = "Happy Mood";
+            string input = null;
+
+            NullMoodAnalyzer mood = new NullMoodAnalyzer(input);
+
+            var result = mood.AnalyzerMood();
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
