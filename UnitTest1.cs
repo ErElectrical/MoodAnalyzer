@@ -221,7 +221,53 @@ namespace TestProjectCustomException
 
             Assert.AreEqual("Method not found", mood);
         }
+        // test case for Uc7
+        //what we have to do we will set the field values using reflection
+        //and invoke using reflection
+        //and than Assert happy mood.
 
+        public void Set_Happy_Message_With_Reflactor_returns_happyMood()
+        {
+            // Fields are nothing but varibles that is decleared inside a class or struct
+            // so by passing set field what basically we are doing is that we set the value for varible message
+            string result = ChangeMoodDynacially.SetField("happy", "message");
+
+            // checking the result is same as our assumption or not 
+            Assert.AreEqual("happy Moood", result);
+
+        }
+
+        // test case for Uc7 
+        // what we have to do 
+        // when set field is improper it should return a exception no_such_field
+
+        public void Set_Improper_field__With_Reflactor_returns_fieldException()
+        {
+            // Fields are nothing but varibles names that is decleared inside a class or struct
+            // so by passing set field what basically we are doing is that we set the value for varible message
+            // we pass that field which is not in existance
+            string result = ChangeMoodDynacially.SetField("happy", "program");
+
+            // checking the result is same as our assumption or not 
+            Assert.AreEqual("field  not found", result);
+
+        }
+
+        // test case for Uc7
+        //what we have to do
+        // we have to check what happens if we pass null to message
+
+        public void Set_nullmsg__With_Reflactor_returns_nullexception()
+        {
+            // Fields are nothing but varibles names that is decleared inside a class or struct
+            // so by passing set field what basically we are doing is that we set the value for varible message
+            // we pass that field which is not in existance
+            string result = ChangeMoodDynacially.SetField(null, "program");
+
+            // checking the result is same as our assumption or not 
+            Assert.AreEqual("Mood should not be null", result);
+
+        }
 
     }
     }
